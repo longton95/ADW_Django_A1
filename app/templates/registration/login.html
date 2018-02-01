@@ -1,10 +1,55 @@
 {% extends 'base.html' %}
 
+{% load staticfiles %}
+
 {% block content %}
-  <h2>Login</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-  </form>
+<div class="row justify-content-md-center mt-5">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">Login</div>
+            <div class="card-body">
+                <form class="form-horizontal" method="POST" action="">
+                    {% csrf_token %}
+                    <div class="form-group row">
+                        <label for="username" class="col-lg-4 col-form-label text-lg-right">username</label>
+
+                        <div class="col-lg-6">
+                           <input
+                                    id="username"
+                                    type="text"
+                                    class=""
+                                    name="username"
+                                    value=""
+                                    required
+                                    autofocus
+                           >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="password" class="col-lg-4 col-form-label text-lg-right">Password</label>
+
+                        <div class="col-lg-6">
+                           <input
+                                    id="password"
+                                    type="password"
+                                    class=""
+                                    name="password"
+                                    required
+                           >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-lg-8 offset-lg-4">
+                           <button type="submit" class="btn btn-primary">
+                                Login
+                           </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
