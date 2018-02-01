@@ -7,12 +7,14 @@
     <div class="col-md-10 offset-md-1">
       {% if wallets %}
         <div class="card">
-            <div class="card-header">Wallets for {{ user.username }}<span class="float-right">
-               <a href="{% url 'app:createWallet' %}">Create</a>
-                /
-               <a href="{% url 'app:editWallet' %}">Edit</a>
-            </span>
-            </div>
+           <div class="card-header">Wallets for {{ user.username }}<span class="float-right">
+             <a href="{% url 'app:createWallet' %}">Create</a>
+               /
+             <a href="{% url 'app:editWallet' %}">Edit</a>
+             /
+             <a href="{% url 'app:deleteWallet' %}">Delete</a>
+           </span>
+           </div>
 
             <div class="card-body">
 
