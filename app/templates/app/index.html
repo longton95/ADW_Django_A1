@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if latest_wallet_list %}
+    <ul>
+    {% for wallet in latest_wallet_list %}
+          <li><a href="{% url 'app:wallets' %}">{{ wallet.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+{% endblock %}

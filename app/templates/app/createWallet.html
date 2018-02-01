@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+<!-- {% load staticfiles %} -->
+
+{% block content %}
+    <div class="row mt-5">
+        <div class="col-md-10 offset-md-1">
+            <div class="card">
+               <div class="card-header">Wallets for {{ user.username }}<span class="float-right">
+                  <a href="{% url 'app:createWallet' %}">Create</a>
+                   /
+                  <a href="{% url 'app:editWallet' %}">Edit</a>
+               </span>
+               </div>
+
+                <div class="card-body">
+
+                       <form id="new_wallet_form" class="form-horizontal" method="POST" action="">
+
+                           {% csrf_token %}
+
+
+                           <div class="form-group row">
+                              <label for="name" class="col-lg-4 col-form-label text-lg-right">Name</label>
+
+                              <div class="col-lg-6">
+                                  <input
+                                           id="name"
+                                           type="text"
+                                           step="any"
+                                           min="0"
+                                           name="name"
+                                           value=""
+                                           required
+                                           autofocus
+                                  >
+                              </div>
+                           </div>
+
+                           <div class="form-group row">
+                              <label for="bitcoin" class="col-lg-4 col-form-label text-lg-right">Bitcoin</label>
+
+                              <div class="col-lg-6">
+                                  <input
+                                           id="bitcoin"
+                                           type="number"
+                                           step="any"
+                                           min="0"
+                                           name="bitcoin"
+                                           value=""
+                                           required
+                                           autofocus
+                                  >
+                              </div>
+                           </div>
+
+                           <div class="form-group row">
+                              <label for="etherium" class="col-lg-4 col-form-label text-lg-right">Etherium</label>
+
+                              <div class="col-lg-6">
+                                  <input
+                                           id="etherium"
+                                           type="number"
+                                           step="any"
+                                           min="0"
+                                           name="etherium"
+                                           value=""
+                                           required
+                                           autofocus
+                                  >
+                              </div>
+                           </div>
+
+                           <div class="form-group row">
+                              <label for="litecoin" class="col-lg-4 col-form-label text-lg-right">Litecoin</label>
+
+                              <div class="col-lg-6">
+                                  <input
+                                           id="litecoin"
+                                           type="number"
+                                           step="any"
+                                           min="0"
+                                           class=""
+                                           name="litecoin"
+                                           value=""
+                                           required
+                                           autofocus
+                                  >
+                              </div>
+                           </div>
+
+                           <div class="form-group row">
+                              <div class="col-lg-8 offset-lg-4">
+                                  <button type="submit" class="btn btn-primary">
+                                       Submit
+                                  </button>
+                              </div>
+                           </div>
+                       </form>
+
+                  </div>
+              </div>
+          </div>
+       </div>
+{% endblock %}
