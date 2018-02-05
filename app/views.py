@@ -1,4 +1,6 @@
 from django.shortcuts import render,redirect,get_list_or_404, get_object_or_404
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse, Http404
 from django.template import loader
@@ -58,7 +60,19 @@ def deleteWallet (request):
 
     return render (request, 'app/deleteWallet.html', {'wallets': wallets})
 
-
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('/')
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/register.html', {'form': form})
 
 
 
